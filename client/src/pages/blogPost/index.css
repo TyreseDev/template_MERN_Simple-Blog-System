@@ -1,0 +1,15 @@
+.blog-post-home-button {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+}
+
+.blog-post-title {
+  margin-top: 40px;
+  text-align: center;
+  padding: 0 80px;
+}
+
+.blog-post-content {
+  padding: 0 80px;
+}
