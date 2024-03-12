@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import { Parser as HtmlToReactParser } from "html-to-react";
 import Button from "../../components/button";
 import apiRequest from "../../utils/apiHelper";
-import "./index.css";
 
 // @ts-ignore
 const htmlToReactParser = new HtmlToReactParser();
@@ -35,14 +34,16 @@ const BlogPost: React.FC = () => {
   }, [bid]);
 
   return (
-    <div className="blog-post body">
+    <div className="h-[90vh] w-[100vw] overflow-y-auto">
       <Container>
-        <h1 className="blog-post-title">{blog.title}</h1>
-        <div className="blog-post-content">
+        <h1 className="mt-10 text-center px-20 blog-post-title">
+          {blog.title}
+        </h1>
+        <div className="px-20 blog-post-content">
           {htmlToReactParser.parse(blog.content)}
         </div>
       </Container>
-      <div className="blog-post-home-button">
+      <div className="absolute top-[10vh] left-0 blog-post-home-button">
         <Button
           action={() => navigate("/home")}
           icon="streamline:interface-home-3-home-house-map-roof"

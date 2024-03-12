@@ -42,17 +42,17 @@ const NewBlog: React.FC = () => {
   };
 
   return (
-    <div className="new-blog body">
+    <div className="h-[90vh] w-[100vw] overflow-y-auto">
       <Container>
-        <div className="new-blog-input">
+        <div className="p-4">
           <input
-            className="new-blog-input-title_summary"
+            className="w-full border border-[#e9e9e9] rounded-lg p-2 my-2 text-base outline-none"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Please input New Blog's Title"
           />
           <input
-            className="new-blog-input-title_summary"
+            className="w-full border border-[#e9e9e9] rounded-lg p-2 my-2 text-base outline-none"
             value={summary}
             onChange={(e) => setSummary(e.target.value)}
             placeholder="Please input New Blog's Summary"
@@ -63,15 +63,15 @@ const NewBlog: React.FC = () => {
             onChange={setContent}
             modules={modules}
             placeholder="Please input New Blog's Content"
+            className="new-blog-editor"
           />
         </div>
       </Container>
-      <div className="new-blog-button-group">
+      <div className="absolute top-[10vh] left-0">
         <Button
           action={() => navigate("/home")}
           icon="streamline:interface-home-3-home-house-map-roof"
         />
-        <br />
         <Button action={newBlogCreate} icon="bi:clipboard-check" />
       </div>
     </div>

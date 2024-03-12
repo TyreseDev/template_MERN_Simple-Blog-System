@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Button from "../../components/button";
 import apiRequest from "../../utils/apiHelper";
-import "./index.css";
 
 setConfiguration({ gridColumns: 24 });
 
@@ -29,7 +28,7 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="home body">
+    <div className="h-[90vh] w-[100vw] overflow-y-auto">
       <Container>
         <Row>
           {blogs.map((blog, blogIndex) => (
@@ -37,7 +36,7 @@ const Home: React.FC = () => {
               <div
                 role="button"
                 tabIndex={blogIndex}
-                className="blog-item"
+                className="m-10 bg-gray-300 h-[20vh] min-h-[180px] rounded-lg text-center cursor-pointer hover:opacity-80 hover:shadow-xl"
                 onClick={() => navigate(`/blog-post/${blog._id}`)}
                 onKeyDown={(event) => {
                   if (event.key === "Enter") {
@@ -46,16 +45,16 @@ const Home: React.FC = () => {
                 }}
                 aria-label={`Go to blog post ${blog.title}`}
               >
-                <div className="blog-item-content">
-                  <h2 className="blog-item-title">{blog.title}</h2>
-                  <span className="blog-item-summary">{blog.summary}</span>
+                <div className="mx-[10%] w-4/5 h-full overflow-hidden">
+                  <h2 className="my-2">{blog.title}</h2>
+                  <span>{blog.summary}</span>
                 </div>
               </div>
             </Col>
           ))}
         </Row>
       </Container>
-      <div className="new-blog-button">
+      <div className="absolute bottom-0 right-0">
         <Button action={() => navigate("/new-blog")} icon="bi:clipboard-plus" />
       </div>
     </div>
