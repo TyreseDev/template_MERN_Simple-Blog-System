@@ -10,6 +10,10 @@
   border-radius: 8px 8px 0 0;
 }
 
+.new-blog-editor .ql-snow.ql-toolbar button {
+  outline: 0;
+}
+
 .new-blog-editor .ql-editor {
   min-height: 50vh;
 }

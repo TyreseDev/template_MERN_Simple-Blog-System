@@ -2,12 +2,19 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import MainLayout from "./layouts/mainLayout";
 import Home from "./pages/home";
 import NewBlog from "./pages/newBlog";
-import BlogPost from "./pages/blog";
+import BlogPage from "./pages/blog";
+import Login from "./pages/login";
+import Signup from "./pages/signup";
+import RequireAuth from "./components/requireAuth";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />,
+    element: (
+      <RequireAuth>
+        <MainLayout />
+      </RequireAuth>
+    ),
     children: [
       {
         path: "/",
@@ -23,7 +30,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog/:bid",
-        element: <BlogPost />,
+        element: <BlogPage />,
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login />,
+      },
+      {
+        path: "/auth/signup",
+        element: <Signup />,
       },
     ],
   },
