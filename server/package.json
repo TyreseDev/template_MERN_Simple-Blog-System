@@ -1,8 +1,8 @@
 {
   "name": "server",
   "author": "Tyrese",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.9",
+  "license": "ISC",
   "main": "index.mjs",
   "scripts": {
     "start": "node index.mjs",

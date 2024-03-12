@@ -2,7 +2,7 @@
   "name": "client",
   "author": "Tyrese",
   "version": "0.0.9",
-  "private": true,
+  "license": "ISC",
   "type": "module",
   "scripts": {
     "dev": "vite",
