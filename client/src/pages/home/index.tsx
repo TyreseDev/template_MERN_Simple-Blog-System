@@ -1,27 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, setConfiguration } from "react-grid-system";
 import { useNavigate } from "react-router-dom";
-import { useAlert } from "react-alert";
+import { toast } from "react-toastify";
 import Button from "../../components/button";
 import apiRequest from "../../utils/apiHelper";
 import "./index.css";
 
 setConfiguration({ gridColumns: 24 });
 
+// Assuming the structure of your blog data based on the usage:
+type Blog = {
+  _id: string;
+  title: string;
+  summary: string;
+};
+
 function Home() {
   const navigate = useNavigate();
-  const alert = useAlert();
-  const [blogs, setBlogs] = useState([]);
+  // Use TypeScript to define the blogs array with the Blog type
+  const [blogs, setBlogs] = useState<Blog[]>([]);
 
   useEffect(() => {
-    apiRequest("/blog").then((res) => {
-      if (res) {
-        setBlogs(res.blogs || []);
+    // You may need to define the expected structure of `res` for better type checking
+    apiRequest("/blog").then((res: { blogs?: Blog[] }) => {
+      if (res && res.blogs) {
+        setBlogs(res.blogs);
       } else {
-        alert.error("Data load error!");
+        toast.error("Data load error!");
       }
     });
-  }, [alert]);
+  }, []);
 
   return (
     <div className="home body">

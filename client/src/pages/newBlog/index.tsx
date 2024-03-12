@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container } from "react-grid-system";
 import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
-import { useAlert } from "react-alert";
+import { toast } from "react-toastify";
 import Button from "../../components/button";
 import apiRequest from "../../utils/apiHelper";
 import "react-quill/dist/quill.snow.css";
@@ -10,7 +10,6 @@ import "./index.css";
 
 function NewBlog() {
   const navigate = useNavigate();
-  const alert = useAlert();
 
   const newBlogCreate = () => {
     apiRequest("/blog", "POST", {
@@ -19,17 +18,17 @@ function NewBlog() {
       content,
     }).then((res) => {
       if (res) {
-        alert.success("Success created!");
+        toast.success("Success created!");
         navigate("/home");
       } else {
-        alert.error("Create error!");
+        toast.error("Create error!");
       }
     });
   };
 
-  const [title, setTitle] = useState("");
-  const [summary, setSummary] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [summary, setSummary] = useState<string>("");
+  const [content, setContent] = useState<string>("");
 
   const modules = {
     toolbar: [
@@ -61,7 +60,7 @@ function NewBlog() {
           <ReactQuill
             theme="snow"
             value={content}
-            onChange={(e) => setContent(e)}
+            onChange={setContent} // Simply use setContent, the type is inferred
             modules={modules}
             placeholder="Please input New Blog's Content"
           />
@@ -73,7 +72,7 @@ function NewBlog() {
           icon="streamline:interface-home-3-home-house-map-roof"
         />
         <br />
-        <Button action={() => newBlogCreate()} icon="bi:clipboard-check" />
+        <Button action={newBlogCreate} icon="bi:clipboard-check" />
       </div>
     </div>
   );
