@@ -36,14 +36,10 @@ const BlogPost: React.FC = () => {
   return (
     <div className="h-[90vh] w-[100vw] overflow-y-auto">
       <Container>
-        <h1 className="mt-10 text-center px-20 blog-post-title">
-          {blog.title}
-        </h1>
-        <div className="px-20 blog-post-content">
-          {htmlToReactParser.parse(blog.content)}
-        </div>
+        <h1 className="mt-10 text-center px-20">{blog.title}</h1>
+        <div className="px-20">{htmlToReactParser.parse(blog.content)}</div>
       </Container>
-      <div className="absolute top-[10vh] left-0 blog-post-home-button">
+      <div className="absolute top-[10vh] left-0">
         <Button
           action={() => navigate("/home")}
           icon="streamline:interface-home-3-home-house-map-roof"

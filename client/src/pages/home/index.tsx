@@ -37,10 +37,10 @@ const Home: React.FC = () => {
                 role="button"
                 tabIndex={blogIndex}
                 className="m-10 bg-gray-300 h-[20vh] min-h-[180px] rounded-lg text-center cursor-pointer hover:opacity-80 hover:shadow-xl"
-                onClick={() => navigate(`/blog-post/${blog._id}`)}
+                onClick={() => navigate(`/blog/${blog._id}`)}
                 onKeyDown={(event) => {
                   if (event.key === "Enter") {
-                    navigate(`/blog-post/${blog._id}`);
+                    navigate(`/blog/${blog._id}`);
                   }
                 }}
                 aria-label={`Go to blog post ${blog.title}`}

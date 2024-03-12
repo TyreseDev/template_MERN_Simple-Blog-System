@@ -2,7 +2,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import MainLayout from "./layouts/mainLayout";
 import Home from "./pages/home";
 import NewBlog from "./pages/newBlog";
-import BlogPost from "./pages/blogPost";
+import BlogPost from "./pages/blog";
 
 const router = createBrowserRouter([
   {
@@ -10,15 +10,19 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-        path: "home",
+        path: "/",
+        element: <Navigate to="/home" replace />,
+      },
+      {
+        path: "/home",
         element: <Home />,
       },
       {
-        path: "new-blog",
+        path: "/new-blog",
         element: <NewBlog />,
       },
       {
-        path: "blog-post/:bid",
+        path: "/blog/:bid",
         element: <BlogPost />,
       },
     ],
