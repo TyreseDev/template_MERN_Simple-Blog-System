@@ -1,4 +1,3 @@
-import type React from "react";
 import { Icon } from "@iconify/react";
 import "./index.css";
 
@@ -9,7 +8,7 @@ type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = (props) => {
   return (
-    <button className="my-button" onClick={() => props.action()}>
+    <button className="my-button" onClick={() => props.action()} type="button">
       <Icon icon={props.icon} />
     </button>
   );

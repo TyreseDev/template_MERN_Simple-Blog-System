@@ -12,7 +12,6 @@ import Header from "./components/header";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 
-// Define your routes
 const router = createBrowserRouter([
   {
     path: "/home",
@@ -37,17 +36,7 @@ const App: React.FC = () => {
     <>
       <Header />
       <RouterProvider router={router} />
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+      <ToastContainer draggable />
     </>
   );
 };

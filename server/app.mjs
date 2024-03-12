@@ -13,7 +13,7 @@ const corsOptions = {
   credentials: true, // Enable sending cookies across different domains
   preflightContinue: false, // Disable preflight requests caching
   optionsSuccessStatus: 200, // Set the response status code for successful OPTIONS requests
-}
+};
 
 app.use(cors(corsOptions));
 app.use(morgan("dev"));
@@ -21,5 +21,9 @@ app.use(bodyParser.json({ limit: "1mb" }));
 app.use(bodyParser.urlencoded({ limit: "1mb", extended: false }));
 
 app.use("/api/blog", blogRoutes);
+
+app.get("*", (req, res) => {
+  res.send("Powerful ExpressJS Service");
+});
 
 export default app;

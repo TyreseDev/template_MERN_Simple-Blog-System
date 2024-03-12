@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "react-grid-system";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -7,33 +7,32 @@ import Button from "../../components/button";
 import apiRequest from "../../utils/apiHelper";
 import "./index.css";
 
+// @ts-ignore
 const htmlToReactParser = new HtmlToReactParser();
 
-// Define types for your blog structure
 type Blog = {
   title: string;
   content: string;
 };
 
-function BlogPost() {
+type BlogApiResponse = {
+  blog?: Blog;
+};
+
+const BlogPost: React.FC = () => {
   const navigate = useNavigate();
-
-  // Use type assertion to ensure useParams matches expected structure
   const { bid } = useParams<{ bid: string }>();
-
-  // Explicitly defining the state type
   const [blog, setBlog] = useState<Blog>({ title: "", content: "" });
 
   useEffect(() => {
-    apiRequest(`/blog/${bid}`).then((res: any) => {
-      // Consider defining a type for `res` for better type safety
+    apiRequest(`/blog/${bid}`).then((res: BlogApiResponse) => {
       if (res) {
         setBlog(res.blog || { title: "", content: "" });
       } else {
         toast.error("Data load error!");
       }
     });
-  }, [bid, alert]);
+  }, [bid]);
 
   return (
     <div className="blog-post body">
@@ -51,6 +50,6 @@ function BlogPost() {
       </div>
     </div>
   );
-}
+};
 
 export default BlogPost;

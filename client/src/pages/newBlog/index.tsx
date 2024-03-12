@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container } from "react-grid-system";
 import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
@@ -8,7 +8,7 @@ import apiRequest from "../../utils/apiHelper";
 import "react-quill/dist/quill.snow.css";
 import "./index.css";
 
-function NewBlog() {
+const NewBlog: React.FC = () => {
   const navigate = useNavigate();
 
   const newBlogCreate = () => {
@@ -60,7 +60,7 @@ function NewBlog() {
           <ReactQuill
             theme="snow"
             value={content}
-            onChange={setContent} // Simply use setContent, the type is inferred
+            onChange={setContent}
             modules={modules}
             placeholder="Please input New Blog's Content"
           />
@@ -76,6 +76,6 @@ function NewBlog() {
       </div>
     </div>
   );
-}
+};
 
 export default NewBlog;
