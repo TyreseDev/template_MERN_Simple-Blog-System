@@ -1,4 +1,4 @@
-const BASE_URL = process.env.API_URL || "http://localhost:5000/api";
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const apiRequest = async (endpoint, method = "GET", data = null) => {
   const options = {

@@ -11,7 +11,7 @@
 - Install dependencies.
 
 ```
-cd React_Simple-Blog-System_Server
+cd server
 npm i
 ```
 

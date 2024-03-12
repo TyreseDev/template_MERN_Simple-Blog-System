@@ -5,8 +5,8 @@
 - Install dependencies.
 
 ```
-cd React_Simple-Blog-System_Client
-npm i --legacy-peer-deps
+cd client
+npm i
 ```
 
 - Start Frontend Service.
