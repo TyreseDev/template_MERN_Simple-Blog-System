@@ -35,7 +35,7 @@ const Home: React.FC = () => {
             <Col xs={24} sm={24} md={12} lg={12} xl={8} xxl={6} key={blog._id}>
               <div
                 role="button"
-                tabIndex={blogIndex}
+                tabIndex={blogIndex + 1}
                 className="m-10 bg-gray-300 h-[20vh] min-h-[180px] rounded-lg text-center cursor-pointer hover:opacity-80 hover:shadow-xl"
                 onClick={() => navigate(`/blog/${blog._id}`)}
                 onKeyDown={(event) => {
